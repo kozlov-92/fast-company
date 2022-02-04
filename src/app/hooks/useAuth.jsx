@@ -7,7 +7,6 @@ import localStorageService, {
     setTokens
 } from "../services/localStorage.service";
 import { useHistory } from "react-router-dom";
-
 export const httpAuth = axios.create({
     baseURL: "https://identitytoolkit.googleapis.com/v1/",
     params: {
@@ -65,8 +64,6 @@ const AuthProvider = ({ children }) => {
         return Math.floor(Math.random() * (max - min + 1) + min);
     };
     async function updateUserData(data) {
-        // const {content}=await userService.update(data)
-        // setUser(content)
         try {
             const { content } = await userService.update(data);
             setUser(content);
